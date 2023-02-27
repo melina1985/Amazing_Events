@@ -1,0 +1,163 @@
+
+.navbar{
+    background-color: rgb(250, 204, 204);
+}
+
+.nav-item{
+    display: flex;
+    background-color: rgb(238, 234, 234);
+    margin: 0.5rem;
+    padding: 0rem 0.5rem;
+    border-style: outset;
+    justify-content: center;
+    align-items: center;
+}
+
+.Subtitulo{
+    background-color: rgb(202, 199, 199);
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+body{
+    background-color: rgb(238, 234, 234);
+}
+
+.space-between{
+    width: 95%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.checkbox_category{
+    appearance: none;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.category{
+    margin: 1rem;
+}
+
+.card-title{
+    text-align: center;
+}
+
+.btn-primary{
+    background-color: rgb(189, 7, 98);
+}
+
+.cards{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.card{
+    margin: 1.3rem;
+    width: 18rem;
+    height: 25rem;
+}
+
+.card-text{
+    height: 6rem;
+    overflow: hidden;
+}
+
+#card-text-center{
+    text-align: center;
+    margin-top: 1rem;
+}
+.card-img-left{
+    margin: auto;
+    width: 60vw;
+    height: 65vh;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.img-card-left{
+    margin: auto;
+    box-shadow: -10px -10px #B7BABC;    
+}
+
+.card-body-see_more{
+    margin: auto;
+    padding: 1rem;
+    text-align: center;
+}
+
+.form-contact{
+    margin: auto;
+    width: auto;
+    padding: 8rem;
+    display: flex;
+    flex-direction: column;
+}
+
+footer{
+    background-color: rgb(250, 204, 204);
+    position: absolute;
+    width: 100%;
+    height: 10vh;
+    padding: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.social_media{
+    align-content: center;
+}
+
+.social{
+    background-color: rgb(238, 234, 234);
+    width: 8%;
+    margin: 1rem;
+    border-style: hidden;
+    border-radius: 50%;
+}
+
+/*
+cosas que fui probando para que no se me rompan los iconos del footer
+
+#ig{
+    background-image: url(../img/Instagram_icon-icons.com_66804.png);
+    background-repeat: no-repeat;
+    background-size: 60%;
+    background-position: center ;
+}
+
+
+#fb{
+    background-image: url(../img/facebook_icon-icons.com_59205.png);
+    background-repeat: no-repeat;
+    background-size: 60%;
+    background-position: center ;
+} */
+
+.cohort{
+    margin: 1rem;
+}
+
+table, td, th{
+    table-layout: auto; width: 100%;
+    border-collapse: collapse;
+    border: 2px solid #fd06066b !important;
+}
+
+.header_table{
+    background-color: rgb(250, 204, 204);
+}
+
+td, th{
+    width: 25vw;
+}
+
+tr{
+    height: 25px;
+}
