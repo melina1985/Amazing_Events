@@ -1,7 +1,18 @@
-const Events = data.events;
+const UpcomingEvents = []
+const currentDate = data.currentDate
+const Events = data.events
 
 let ContenedorTarjetas = document.getElementById("ContenedorTarjetas")
 let cardString = ""
+
+function filtroDeEventosFuturos() {
+    for (let i=0; i < Events.length; i++){
+        if (Events[i].date > currentDate) {
+        UpcomingEvents.push (Events[i])
+        }
+    }
+    return console.log(UpcomingEvents)
+}
 
 function AgregarTarjetas(arrayEvents) {
     for (elemento of arrayEvents) {
@@ -20,5 +31,6 @@ function AgregarTarjetas(arrayEvents) {
     }    
 }
 
-AgregarTarjetas(Events)
+filtroDeEventosFuturos(Events, currentDate)
+AgregarTarjetas(UpcomingEvents)
 ContenedorTarjetas.innerHTML = cardString

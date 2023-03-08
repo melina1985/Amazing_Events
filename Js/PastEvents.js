@@ -1,7 +1,18 @@
-const Events = data.events;
+const PastEvents = []
+const currentDate = data.currentDate
+const Events = data.events
 
 let ContenedorTarjetas = document.getElementById("ContenedorTarjetas")
 let cardString = ""
+
+function filtroDeEventosPasados() {
+    for (let i=0; i < Events.length; i++){
+        if (Events[i].date < currentDate) {
+        PastEvents.push (Events[i])
+        }
+    }
+    return console.log(PastEvents);
+}
 
 function AgregarTarjetas(arrayEvents) {
     for (elemento of arrayEvents) {
@@ -20,5 +31,6 @@ function AgregarTarjetas(arrayEvents) {
     }    
 }
 
-AgregarTarjetas(Events)
+filtroDeEventosPasados(Events, currentDate)
+AgregarTarjetas(PastEvents)
 ContenedorTarjetas.innerHTML = cardString
