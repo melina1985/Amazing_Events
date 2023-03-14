@@ -24,7 +24,7 @@ function AgregarTarjetas(arrayEvents) {
                 <p class="card-text">${elemento.description}</p>
                 <div class="space-between_inCard">
                     <a href="#" class="btn btn-light btn-sm">Price: $${elemento.price}</a>
-                    <a href="See_More.html" class="btn btn-primary btn-sm">See more</a>
+                    <a href="Details.html" class="btn btn-primary btn-sm">See more</a>
                 </div>
             </div>
         </div>`
@@ -33,4 +33,30 @@ function AgregarTarjetas(arrayEvents) {
 
 filtroDeEventosPasados(Events, currentDate)
 AgregarTarjetas(PastEvents)
-ContenedorTarjetas.innerHTML = cardString
+ContenedorTarjetas.innerHTML = cardString 
+
+let categoriasEventos = []
+PastEvents.forEach(element => {
+    if (categoriasEventos.includes(element.category)) {
+        console.log(categoriasEventos);
+    } else {
+        categoriasEventos.push(element.category)
+    }
+});
+
+console.log(categoriasEventos);
+
+let FormCategorias = document.getElementById("checkbox_category")
+let CategoryString = ""
+
+function CrearCheckbox(arrayCategorias) {
+    for (category of arrayCategorias) {
+        CategoryString +=
+        `<div class="category">
+            <input type="checkbox" name=${category} id=${category}  value=${category} checked/>
+            <label for=${category}>${category}</label>
+        </div>`
+    }
+}
+CrearCheckbox(categoriasEventos)
+FormCategorias.innerHTML = CategoryString
