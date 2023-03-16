@@ -11,9 +11,9 @@ const container = document.getElementById("container-detail");
 let htmlString ="";
 
 htmlString +=
-    `<div class= "Card-detail" class="card-img-left">
-        <div class="img-card-left">
-            <img src="${elementoDetails.image}" alt="${elementoDetails.name}" width="100%" >
+    `<div class="card-img-left">
+        <div class="div-img-card-left">
+            <img src="${elementoDetails.image}" alt="${elementoDetails.name}" width:"100%">
         </div>
         <div class="card-body-Details">
             <h5 class="card-title">${elementoDetails.name}</h5>

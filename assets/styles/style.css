@@ -24,11 +24,6 @@ body{
     background-color: rgb(238, 234, 234);
 }
 
-#container-detail{
-    width: 100vw;
-    height: 80vh;
-}
-
 .space-between{
     width: 95%;
     display: flex;
@@ -83,6 +78,13 @@ body{
     overflow: hidden;
 }
 
+#container-detail{
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+    height: 80vh;
+}
+
 .card-text-center{
     text-align: center;
     margin-top: 1rem;
@@ -96,7 +98,8 @@ body{
     flex-wrap: wrap;
 }
 
-.img-card-left{
+.div-img-card-left{
+    width: 50%;
     margin: auto;
     box-shadow: -10px -10px #B7BABC;    
 }
