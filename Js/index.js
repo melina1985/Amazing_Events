@@ -4,11 +4,17 @@ const Events = data.events;
 let categoriasEventos = []
 let arrayFiltradoPorCategorias = []
 const ContenedorTarjetas = document.getElementById("ContenedorTarjetas")
+
 const inputTexto = document.querySelector("input[type='search']")
 const checkContainer = document.getElementById("checkbox_category")
 
 let cardString = ""
 let CategoryString = ""
+
+
+
+
+/* Llamadas*/
 
 Events.forEach(element => {
     if (categoriasEventos.includes(element.category)) {
@@ -20,7 +26,6 @@ Events.forEach(element => {
 
 AgregarTarjetas(Events)
 CrearCheckbox(categoriasEventos)
-console.log(categoriasEventos);
 
 
 /* Eventos */
@@ -82,8 +87,8 @@ function AgregarTarjetas(array) {
     ContenedorTarjetas.innerHTML = cardString
 }
 
-function CrearCheckbox(arrayCategorias) {
-    for (category of arrayCategorias) {
+function CrearCheckbox(array) {
+    for (category of array) {
         CategoryString +=
         `<div class="category">
             <input type="checkbox" name=${category} id=${category}  value=${category} />
