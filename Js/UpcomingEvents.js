@@ -1,8 +1,6 @@
-/* constantes capturadas y variables */
+let urlApi = "https://mindhub-xj03.onrender.com/api/amazing"
 
-const Events = data.events
 const UpcomingEvents = []
-const currentDate = data.currentDate
 let categoriasEventos = []
 let CategoryString = ""
 
@@ -10,20 +8,36 @@ const ContenedorTarjetas = document.getElementById("ContenedorTarjetas")
 const inputTexto = document.querySelector("input[type='search']")
 const checkContainer = document.getElementById("checkbox_category")
 
-/* Llamadas*/
-
-filtroDeEventosFuturos(Events, currentDate)
-AgregarTarjetas(UpcomingEvents)
-
-UpcomingEvents.forEach(element => {
-    if (categoriasEventos.includes(element.category)) {
-        console.log(categoriasEventos);
-    } else {
-        categoriasEventos.push(element.category)
+fetch(urlApi)
+.then(response => response.json())
+.then(datos => {
+    const Events = datos.events;
+    console.log(Events);
+    const currentDate = datos.currentDate;
+    console.log(currentDate);
+    
+    function filtroDeEventosFuturos() {
+        for (let i=0; i < Events.length; i++){
+            if (Events[i].date > currentDate) {
+            UpcomingEvents.push (Events[i])
+            }
+        }
+        return console.log(UpcomingEvents)
     }
-});
-console.log(categoriasEventos);
-CrearCheckbox(categoriasEventos)
+
+    filtroDeEventosFuturos(Events, currentDate)
+    AgregarTarjetas(UpcomingEvents)
+
+    UpcomingEvents.forEach(element => {
+        if (categoriasEventos.includes(element.category)) {
+            return;
+        } else {
+            categoriasEventos.push(element.category)
+        }
+    });
+    console.log(categoriasEventos);
+    CrearCheckbox(categoriasEventos)
+})
 
 /* Eventos */
 
@@ -95,11 +109,3 @@ function CrearCheckbox(array) {
     checkContainer.innerHTML = CategoryString
 }
 
-function filtroDeEventosFuturos() {
-    for (let i=0; i < Events.length; i++){
-        if (Events[i].date > currentDate) {
-        UpcomingEvents.push (Events[i])
-        }
-    }
-    return console.log(UpcomingEvents)
-}

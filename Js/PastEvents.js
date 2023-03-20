@@ -1,8 +1,6 @@
-/* constantes capturadas y variables */
+let urlApi = "https://mindhub-xj03.onrender.com/api/amazing"
 
-const Events = data.events
 const PastEvents = []
-const currentDate = data.currentDate
 let categoriasEventos = []
 let CategoryString = ""
 
@@ -11,20 +9,34 @@ const inputTexto = document.querySelector("input[type='search']")
 const checkContainer = document.getElementById("checkbox_category")
 
 
-/* Llamadas*/
-
-filtroDeEventosPasados(Events, currentDate)
-AgregarTarjetas(PastEvents)
-
-PastEvents.forEach(element => {
-    if (categoriasEventos.includes(element.category)) {
-        console.log(categoriasEventos);
-    } else {
-        categoriasEventos.push(element.category)
+fetch(urlApi)
+.then(response => response.json())
+.then(datos => {
+    const Events = datos.events;
+    console.log(Events);
+    const currentDate = datos.currentDate;
+    console.log(currentDate);
+    
+    function filtroDeEventosPasados() {
+        for (let i=0; i < Events.length; i++){
+            if (Events[i].date < currentDate) {
+            PastEvents.push (Events[i])
+            }
+        }
+        return console.log(PastEvents);
     }
-});
-CrearCheckbox(categoriasEventos)
-
+    
+    filtroDeEventosPasados(Events, currentDate)
+    AgregarTarjetas(PastEvents)
+    PastEvents.forEach(element => {
+    if (categoriasEventos.includes(element.category)) {
+        return;
+        } else {
+        categoriasEventos.push(element.category)
+        }
+    });
+    CrearCheckbox(categoriasEventos)
+})
 
 /* Eventos */
 
@@ -96,11 +108,3 @@ function CrearCheckbox(array) {
     checkContainer.innerHTML = CategoryString
 }
 
-function filtroDeEventosPasados() {
-    for (let i=0; i < Events.length; i++){
-        if (Events[i].date < currentDate) {
-        PastEvents.push (Events[i])
-        }
-    }
-    return console.log(PastEvents);
-}
