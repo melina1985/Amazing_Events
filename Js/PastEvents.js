@@ -1,6 +1,6 @@
 let urlApi = "https://mindhub-xj03.onrender.com/api/amazing"
 
-const PastEvents = []
+let PastEvents = []
 let categoriasEventos = []
 let CategoryString = ""
 
