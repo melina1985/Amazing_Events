@@ -13,9 +13,7 @@ fetch(urlApi)
 .then(response => response.json())
 .then(datos => {
     const Events = datos.events;
-    console.log(Events);
     const currentDate = datos.currentDate;
-    console.log(currentDate);
     
     function filtroDeEventosPasados() {
         for (let i=0; i < Events.length; i++){
@@ -23,7 +21,7 @@ fetch(urlApi)
             PastEvents.push (Events[i])
             }
         }
-        return console.log(PastEvents);
+        return;
     }
     
     filtroDeEventosPasados(Events, currentDate)
@@ -47,9 +45,7 @@ checkContainer.addEventListener("change", superFiltro)
 
 function superFiltro() {
     let primerFiltro = FiltrarPorTexto(PastEvents,inputTexto.value)
-    console.log(primerFiltro);
     let segundoFiltro = FiltrarPorCategorias(primerFiltro)
-    console.log(segundoFiltro);
     AgregarTarjetas(segundoFiltro)
 }
 
@@ -61,9 +57,7 @@ function FiltrarPorTexto(array, texto) {
 function FiltrarPorCategorias(array) {
     let checkboxes = document.querySelectorAll("input[type='checkbox']")
     let arrayCheckboxes = Array.from(checkboxes)
-    console.log(arrayCheckboxes);
     let checksCheckeados = arrayCheckboxes.filter(check => check.checked)
-    console.log(checksCheckeados)
     if (checksCheckeados.length == 0) {
         return array;
     }
@@ -89,7 +83,7 @@ function AgregarTarjetas(array) {
                 <p class="card-text">${elemento.description}</p>
                 <div class="space-between_inCard">
                     <a href="#" class="btn btn-light btn-sm">Price: $${elemento.price}</a>
-                    <a href="Details.html?id=${elemento._id}" class="btn btn-primary btn-sm">See more</a>
+                    <a href="Details.html?id=${elemento._id}" class="btn btn-primary btn-sm">Details</a>
                 </div>
             </div>
         </div>`

@@ -15,7 +15,6 @@ fetch(urlApi)
 .then(response => response.json())
 .then (datos => {
     const Events = datos.events
-    console.log(Events);
     Events.forEach(element => {
         if (categoriasEventos.includes(element.category)) {
             return;
@@ -23,7 +22,6 @@ fetch(urlApi)
             categoriasEventos.push(element.category)
         }
     });
-    console.log(categoriasEventos);
     AgregarTarjetas(Events)
     CrearCheckbox(categoriasEventos)
 
@@ -34,9 +32,7 @@ fetch(urlApi)
                     /* Funciones */
     function superFiltro() {
         let primerFiltro = FiltrarPorTexto(Events,inputTexto.value)
-        console.log(primerFiltro);
         let segundoFiltro = FiltrarPorCategorias(primerFiltro)
-        console.log(segundoFiltro);
         AgregarTarjetas(segundoFiltro)
     }
 
@@ -48,9 +44,7 @@ fetch(urlApi)
     function FiltrarPorCategorias(array) {
         let checkboxes = document.querySelectorAll("input[type='checkbox']")
         let arrayCheckboxes = Array.from(checkboxes)
-        console.log(arrayCheckboxes);
         let checksCheckeados = arrayCheckboxes.filter(check => check.checked)
-        console.log(checksCheckeados)
         if (checksCheckeados.length == 0) {
             return array;
         }
@@ -78,7 +72,7 @@ function AgregarTarjetas(array) {
                     <p class="card-text">${elemento.description}</p>
                     <div class="space-between_inCard">
                         <a href="#" class="btn btn-light btn-sm">Price: $${elemento.price}</a>
-                        <a href="Details.html?id=${elemento._id}" class="btn btn-primary btn-sm">See more</a>
+                        <a href="Details.html?id=${elemento._id}" class="btn btn-primary btn-sm">Details</a>
                     </div>
                 </div>
             </div>`
